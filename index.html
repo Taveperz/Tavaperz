@@ -228,7 +228,7 @@
         <h1 class="text-center p-5">Contact Us</h1>
         <div class="row p-4">
           <div class="col-md-12">
-            <form  id="submit-form" method="post" action="https://script.google.com/macros/s/AKfycbx3nAGAe0MSjbKA6sfb93X24RxgciBJDysT-5nPJLIrCipRyu-apnOMKN8NJf0XtDa_OQ/exec">
+            <form id="submit-form" action="">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Name</label>
@@ -256,15 +256,28 @@
               
               
               <div class="form-group text-center">
-              <input type="submit" class="btn btn-info" style="width: 100%;">
+              <input type="submit" value="submit" class="btn btn-info" style="width: 100%;">
             </div>
             </form>
-        </div>
-          </div>
-          <div class="column">
-            <img src="crossroads.png" style="width:100%">
-          </div>
-        </div>
+            <script>
+              $("#submit-form").submit((e)=>{
+                  e.preventDefault()
+                  $.ajax({
+                      url:"https://script.google.com/macros/s/AKfycbx3nAGAe0MSjbKA6sfb93X24RxgciBJDysT-5nPJLIrCipRyu-apnOMKN8NJf0XtDa_OQ/exec",
+                      data:$("#submit-form").serialize(),
+                      method:"post",
+                      success:function (response){
+                          alert("Form submitted successfully")
+                          window.location.reload()
+                          //window.location.href="https://google.com"
+                      },
+                      error:function (err){
+                          alert("Something Error")
+          
+                      }
+                  })
+              })
+          </script>
       </div>
       
           </div>
@@ -289,30 +302,13 @@
       </div>
     </footer>
    
-<script>
-      $("#gfor").submit((e)=>{
-          e.preventDefault()
-          $.ajax({
-              url:"https://script.google.com/macros/s/AKfycbx3nAGAe0MSjbKA6sfb93X24RxgciBJDysT-5nPJLIrCipRyu-apnOMKN8NJf0XtDa_OQ/exec",
-              data:$("#gfor").serialize(),
-              method:"post",
-              success:function (response){
-                  alert("Form submitted successfully")
-                  window.location.reload()
-                  //window.location.href="https://google.com"
-              },
-              error:function (err){
-                  alert("Something Error")
-  
-              }
-          })
-      })
-  </script>
+
   
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1d403a73fc.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 

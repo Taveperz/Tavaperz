@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Taveperz</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+    
 </head>
 <body>
     <header class="bg-info" style="position: fixed; width: 100%; z-index: 1;">
@@ -225,37 +228,45 @@
         <h1 class="text-center p-5">Contact Us</h1>
         <div class="row p-4">
           <div class="col-md-12">
-            <form>
+            <form  id="submit-form" method="post" action="https://script.google.com/macros/s/AKfycbx3nAGAe0MSjbKA6sfb93X24RxgciBJDysT-5nPJLIrCipRyu-apnOMKN8NJf0XtDa_OQ/exec">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Name</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+                  <label>Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="Name">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Place</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Place">
+                  <label>Place</label>
+                  <input type="text" class="form-control" name="place" placeholder="Place">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Mobile</label>
-                  <input type="tel" class="form-control" id="inputEmail4" placeholder="Mobile no.">
+                  <label>Mobile</label>
+                  <input type="tel" class="form-control" name="mobile" placeholder="Mobile no.">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">E-mail</label>
-                  <input type="email" class="form-control" id="inputPassword4" placeholder="email">
+                  <label>E-mail</label>
+                  <input type="email" class="form-control" name="email" placeholder="email">
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Message</label>
-                <textarea class="form-control" cols="30" rows="10" placeholder="Type Your Message Here..."></textarea>
+                <label>Message</label>
+                <textarea class="form-control" cols="30" rows="10" name="message" placeholder=Type Your Message Here..."></textarea>
               </div>
               
               
               <div class="form-group text-center">
-              <button type="submit" class="btn btn-info" style="width: 100%;">Submit</button>
+              <input type="submit" class="btn btn-info" style="width: 100%;">
             </div>
             </form>
+        </div>
+          </div>
+          <div class="column">
+            <img src="crossroads.png" style="width:100%">
+          </div>
+        </div>
+      </div>
+      
           </div>
 
         </div>
@@ -277,11 +288,34 @@
         </div>
       </div>
     </footer>
-
-
+   
+<script>
+      $("#gfor").submit((e)=>{
+          e.preventDefault()
+          $.ajax({
+              url:"https://script.google.com/macros/s/AKfycbx3nAGAe0MSjbKA6sfb93X24RxgciBJDysT-5nPJLIrCipRyu-apnOMKN8NJf0XtDa_OQ/exec",
+              data:$("#gfor").serialize(),
+              method:"post",
+              success:function (response){
+                  alert("Form submitted successfully")
+                  window.location.reload()
+                  //window.location.href="https://google.com"
+              },
+              error:function (err){
+                  alert("Something Error")
+  
+              }
+          })
+      })
+  </script>
+  
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1d403a73fc.js" crossorigin="anonymous"></script>
+
+
+
+ 
 </body>
 </html>
